@@ -117,22 +117,33 @@
     padding:140px 24px 64px;
     max-width:1240px;margin:0 auto;
   }
+  /* --- HERO SLIDE UP EFFECT --- */
+  @keyframes heroSlideUp{
+    from{opacity:0;transform:translateY(38px) scale(.98);}
+    to{opacity:1;transform:translateY(0) scale(1);}
+  }
   .hero-badge{
     display:inline-flex;align-items:center;gap:8px;padding:7px 16px;border-radius:999px;
     border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.08);
     font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.85);
     backdrop-filter:blur(6px);
+    opacity:0;animation:heroSlideUp .8s cubic-bezier(.16,1,.3,1) .15s forwards;
   }
   .hero-badge .dot{width:6px;height:6px;border-radius:999px;background:var(--gold);}
   .hero h1{
     margin-top:24px;color:#fff;font-size:38px;line-height:1.02;letter-spacing:-.02em;
     max-width:720px;
+    opacity:0;animation:heroSlideUp .9s cubic-bezier(.16,1,.3,1) .28s forwards;
   }
   .hero h1 em{display:block;font-style:italic;font-weight:500;color:var(--gold-2);margin-top:4px;}
   .hero p.lede{
     margin-top:22px;max-width:560px;font-size:15.5px;line-height:1.7;color:rgba(255,255,255,.82);
+    opacity:0;animation:heroSlideUp .9s cubic-bezier(.16,1,.3,1) .42s forwards;
   }
-  .hero-actions{margin-top:34px;display:flex;flex-wrap:wrap;gap:16px;}
+  .hero-actions{margin-top:34px;display:flex;flex-wrap:wrap;gap:16px;opacity:0;animation:heroSlideUp .9s cubic-bezier(.16,1,.3,1) .55s forwards;}
+  .hero .hero-stats{
+    opacity:0;animation:heroSlideUp 1s cubic-bezier(.16,1,.3,1) .70s forwards;
+  }
   .btn-solid{
     height:48px;padding:0 30px;border-radius:999px;background:var(--gold);color:var(--navy);
     font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;
@@ -441,8 +452,8 @@
     .offices-head h2{font-size:40px;}
   }
 
-  /* ---------- CONTACT ---------- */
-  .contact{padding:88px 0;}
+  /* ---------- CONTACT - BUSINESS CARD DESIGN + LIFT ---------- */
+  .contact{padding:88px 0;background:linear-gradient(180deg, #fff 0%, #FAF9F7 100%);}
   .contact-inner{display:grid;grid-template-columns:1fr;gap:48px;}
   .contact-head h2{margin-top:12px;font-size:32px;color:var(--navy);line-height:1.0;}
   .contact-head p{margin-top:16px;font-size:13.5px;line-height:1.7;color:rgba(26,26,26,.6);max-width:48ch;}
@@ -465,23 +476,87 @@
     font-size:12px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;transition:.2s ease;}
   .submit-btn:hover{background:#000;}
   .disclaimer-mini{font-size:11px;color:rgba(26,26,26,.4);max-width:32ch;line-height:1.5;}
-  .info-card{border-radius:24px;border:1px solid rgba(15,30,51,.08);background:#fff;padding:32px;}
-  .info-card h3{font-family:'Playfair Display',serif;font-size:18px;color:var(--navy);}
-  .info-block{margin-top:22px;}
-  .info-block .lbl{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:rgba(15,30,51,.4);}
-  .info-block .val{margin-top:6px;font-size:13.5px;line-height:1.6;color:rgba(26,26,26,.7);}
-  .info-divider{height:1px;background:rgba(15,30,51,.06);margin:20px 0;}
-  .social-row{margin-top:28px;display:flex;gap:12px;}
+
+  /* Business Card Container */
+  .contact .reveal:last-child{perspective:1200px;}
+  .info-card{
+    border-radius:20px;border:1px solid rgba(15,30,51,.08);background:#fff;
+    padding:0;overflow:hidden;position:relative;
+    transform-style:preserve-3d;
+    transition: transform .65s cubic-bezier(.16,1,.3,1), box-shadow .6s ease, border-color .4s ease;
+    box-shadow: 0 14px 32px rgba(15,30,51,.08);
+    will-change:transform;
+  }
+  .info-card:hover{
+    transform: translateY(-14px) rotateX(4deg) rotateY(-4deg) scale(1.025);
+    box-shadow: 0 32px 70px rgba(15,30,51,.22), 0 0 0 1px rgba(197,168,128,.18) inset;
+    border-color: rgba(197,168,128,.32);
+  }
+  /* Top navy part of business card */
+  .biz-top{
+    background: linear-gradient(135deg, #0F1E33 0%, #132A4B 22%, #173B6B 58%, #2C5AA0 100%);
+    padding:26px 28px 20px;position:relative;overflow:hidden;isolation:isolate;
+  }
+  .biz-top::before{
+    content:"";position:absolute;inset:0;
+    background:
+      radial-gradient(420px circle at -10% -20%, rgba(44,90,160,.55), transparent 60%),
+      radial-gradient(360px circle at 110% 120%, rgba(197,168,128,.22), transparent 60%);
+    pointer-events:none;z-index:0;
+  }
+  .biz-top::after{
+    content:"";position:absolute;top:-60%;left:-70%;width:75%;height:200%;
+    background: linear-gradient(100deg, transparent 38%, rgba(255,255,255,.18) 50%, transparent 62%);
+    transform: rotate(12deg) translateX(0);
+    transition: transform .95s cubic-bezier(.16,1,.3,1);
+    pointer-events:none;z-index:1;
+  }
+  .info-card:hover .biz-top::after{transform: rotate(12deg) translateX(300%);}
+  .biz-top > *{position:relative;z-index:2;}
+  .biz-logo-row{display:flex;justify-content:space-between;align-items:flex-start;}
+  .biz-logo{font-family:'Playfair Display',serif;font-size:14px;letter-spacing:.18em;color:#fff;font-weight:700;line-height:1.1;}
+  .biz-logo span{display:block;font-family:'Inter',sans-serif;font-size:9px;letter-spacing:.38em;color:var(--gold-2);margin-top:6px;font-weight:600;}
+  .biz-chip{width:36px;height:24px;border-radius:4px;background:linear-gradient(135deg, #E6D0A8 0%, #C5A880 100%);box-shadow:inset 0 1px 0 rgba(255,255,255,.6), 0 2px 6px rgba(0,0,0,.2);position:relative;}
+  .biz-chip::after{content:"";position:absolute;inset:3px;border:1px solid rgba(15,30,51,.15);border-radius:2px;}
+  .biz-gold-line{margin-top:18px;height:2px;width:100%;background:linear-gradient(90deg, var(--gold) 0%, rgba(197,168,128,.2) 70%, transparent 100%);}
+  .biz-name{margin-top:18px;color:#fff;font-family:'Playfair Display',serif;font-size:18px;}
+  .biz-role{margin-top:4px;color:var(--gold-2);font-size:10px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;}
+
+  .biz-body{padding:26px 28px 22px;background:#fff;}
+  .info-block{margin-top:0;}
+  .info-block + .info-block{margin-top:18px;}
+  .info-block .lbl{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:rgba(15,30,51,.38);font-weight:700;display:flex;align-items:center;gap:8px;}
+  .info-block .lbl::before{content:"";width:16px;height:1px;background:rgba(15,30,51,.12);display:inline-block;}
+  .info-block .val{margin-top:7px;font-size:13.5px;line-height:1.6;color:rgba(26,26,26,.75);padding-left:24px;}
+  .info-divider{height:1px;background:linear-gradient(90deg, rgba(15,30,51,.08), transparent);margin:22px 0;}
+  .biz-contact-lines{display:flex;flex-direction:column;gap:12px;margin-top:6px;}
+  .biz-line{display:flex;align-items:center;gap:12px;font-size:12.5px;color:rgba(15,30,51,.65);}
+  .biz-line .b-ic{width:28px;height:28px;border-radius:999px;background:var(--cream);border:1px solid rgba(15,30,51,.08);display:grid;place-items:center;font-size:12px;color:var(--navy);flex-shrink:0;}
+  .social-row{margin-top:22px;display:flex;gap:10px;padding-left:2px;}
   .social-row a{width:36px;height:36px;border-radius:999px;border:1px solid rgba(15,30,51,.1);
-    display:grid;place-items:center;color:rgba(15,30,51,.6);transition:.2s ease;}
-  .social-row a:hover{background:var(--navy);color:#fff;border-color:var(--navy);}
-  .info-disclaimer{margin-top:28px;border-radius:12px;background:var(--cream);border:1px solid rgba(15,30,51,.06);
-    padding:14px;font-size:11.5px;line-height:1.6;color:rgba(26,26,26,.5);}
+    display:grid;place-items:center;color:rgba(15,30,51,.6);transition:all .25s ease;background:#fff;}
+  .social-row a:hover{background:var(--navy);color:var(--gold-2);border-color:var(--navy);transform:translateY(-2px);}
+  .info-disclaimer{margin-top:22px;border-radius:12px;background:var(--cream);border:1px solid rgba(15,30,51,.06);
+    padding:14px;font-size:11px;line-height:1.6;color:rgba(26,26,26,.5);}
   .info-disclaimer b{color:rgba(15,30,51,.7);}
-  .urgent-card{margin-top:24px;border-radius:20px;background:var(--navy);color:#fff;padding:26px;display:flex;gap:16px;}
-  .urgent-card .ic{width:40px;height:40px;border-radius:999px;background:rgba(255,255,255,.1);
-    display:grid;place-items:center;color:var(--gold);flex-shrink:0;font-size:16px;}
-  .urgent-card b{font-size:13px;font-weight:600;}
+
+  .urgent-card{
+    margin-top:22px;border-radius:18px;background:linear-gradient(135deg, #0F1E33 0%, #173B6B 100%);color:#fff;
+    padding:22px 24px;display:flex;gap:16px;position:relative;overflow:hidden;
+    border:1px solid rgba(197,168,128,.18);
+    transition: transform .5s cubic-bezier(.16,1,.3,1), box-shadow .5s ease;
+    transform-style:preserve-3d;
+  }
+  .urgent-card:hover{transform: translateY(-6px) scale(1.02);box-shadow:0 20px 40px rgba(15,30,51,.25);}
+  .urgent-card::before{
+    content:"";position:absolute;inset:0;
+    background: radial-gradient(300px circle at 0% 0%, rgba(44,90,160,.4), transparent 60%);
+    pointer-events:none;
+  }
+  .urgent-card .ic{width:40px;height:40px;border-radius:999px;background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.12);display:grid;place-items:center;color:var(--gold);flex-shrink:0;font-size:16px;position:relative;z-index:1;}
+  .urgent-card > div:last-child{position:relative;z-index:1;}
+  .urgent-card b{font-size:13px;font-weight:600;color:#fff;}
   .urgent-card p{margin-top:5px;font-size:12.5px;line-height:1.6;color:rgba(255,255,255,.65);}
   @media(min-width:768px){
     form{grid-template-columns:1fr 1fr;}
@@ -920,32 +995,47 @@
       </form>
     </div>
     <div class="reveal">
-      <div class="info-card">
-        <h3>Contact Information</h3>
-        <div class="info-block">
-          <div class="lbl">Primary Office</div>
-          <div class="val">9 Ruiter Road, Mokopane, 0601<br>South Africa</div>
+      <div class="info-card biz-card">
+        <div class="biz-top">
+          <div class="biz-logo-row">
+            <div class="biz-logo">LEBELO RASEBOYE<span>ATTORNEYS</span></div>
+            <div class="biz-chip"></div>
+          </div>
+          <div class="biz-gold-line"></div>
+          <div class="biz-name serif">Thabang V. Raseboye & Lesiba R. Lebelo</div>
+          <div class="biz-role">Co-Founders • Limpopo • South Africa</div>
         </div>
-        <div class="info-block">
-          <div class="lbl">Secondary Office</div>
-          <div class="val">69 Hooge Street, Mokopane</div>
+        <div class="biz-body">
+          <div class="biz-contact-lines">
+            <div class="biz-line"><span class="b-ic">⌖</span> 9 Ruiter Road, Mokopane, 0601 • Primary</div>
+            <div class="biz-line"><span class="b-ic">◎</span> 69 Hooge Street, Mokopane • Secondary</div>
+          </div>
+          <div class="info-divider"></div>
+          <div class="info-block">
+            <div class="lbl">Primary Office</div>
+            <div class="val">9 Ruiter Road, Mokopane, 0601<br>South Africa • ~246 km from JHB</div>
+          </div>
+          <div class="info-block">
+            <div class="lbl">Hours</div>
+            <div class="val">Mon–Thu: 8AM–5PM<br>Fri: 8AM–3PM • Sat: 9AM–12PM • Sun Closed</div>
+          </div>
+          <div class="info-divider"></div>
+          <div class="info-block">
+            <div class="lbl">Contact Information</div>
+            <div class="val">Consultations by appointment only. LPC Compliant.</div>
+          </div>
+          <div class="social-row">
+            <a href="#" aria-label="LinkedIn"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.48-2.24-1.68-2.24-.92 0-1.47.62-1.71 1.22-.09.21-.11.5-.11.8v5.79H9.85s.05-9.39 0-10.36h3.55v1.47c.47-.73 1.31-1.77 3.19-1.77 2.33 0 4.08 1.52 4.08 4.8v5.86zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V10.09h3.56v10.36z"/></svg></a>
+            <a href="#" aria-label="Facebook"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-7h2.3l.3-2.7h-2.6v-1.8c0-.8.2-1.3 1.4-1.3h1.5V4.9c-.3 0-1.2-.1-2.2-.1-2.2 0-3.7 1.3-3.7 3.8v2.1H8v2.7h2.5V21h3z"/></svg></a>
+          </div>
+          <div class="info-disclaimer"><b>Disclaimer:</b> Submission of this form does not create an attorney-client relationship. By appointment only.</div>
         </div>
-        <div class="info-divider"></div>
-        <div class="info-block">
-          <div class="lbl">Hours</div>
-          <div class="val">Mon&ndash;Thu: 8:00 AM &ndash; 5:00 PM<br>Fri: 8:00 AM &ndash; 3:00 PM<br>Sat: 9:00 AM &ndash; 12:00 PM</div>
-        </div>
-        <div class="social-row">
-          <a href="#" aria-label="LinkedIn"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.48-2.24-1.68-2.24-.92 0-1.47.62-1.71 1.22-.09.21-.11.5-.11.8v5.79H9.85s.05-9.39 0-10.36h3.55v1.47c.47-.73 1.31-1.77 3.19-1.77 2.33 0 4.08 1.52 4.08 4.8v5.86zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V10.09h3.56v10.36z"/></svg></a>
-          <a href="#" aria-label="Facebook"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-7h2.3l.3-2.7h-2.6v-1.8c0-.8.2-1.3 1.4-1.3h1.5V4.9c-.3 0-1.2-.1-2.2-.1-2.2 0-3.7 1.3-3.7 3.8v2.1H8v2.7h2.5V21h3z"/></svg></a>
-        </div>
-        <div class="info-disclaimer"><b>Disclaimer:</b> Consultations by appointment only. Submission of this form does not create an attorney-client relationship.</div>
       </div>
       <div class="urgent-card">
-        <div class="ic">&#10022;</div>
+        <div class="ic">✦</div>
         <div>
           <b>Need urgent assistance?</b>
-          <p>We respond to all enquiries within one business day. For time-sensitive matters, please visit our primary office in Mokopane.</p>
+          <p>We respond within one business day. For time-sensitive matters, visit our primary office in Mokopane.</p>
         </div>
       </div>
     </div>
@@ -1117,6 +1207,107 @@
   document.getElementById('toastClose').addEventListener('click', function(){
     toast.classList.remove('show');
   });
+
+  // ---- CORE PRACTICE AUTO-SCROLL (FINITE, NOT INFINITE) ----
+  (function(){
+    var scroller = document.getElementById('practiceScroller');
+    if(!scroller) return;
+    var cards = scroller.querySelectorAll('.practice-card');
+    if(!cards.length) return;
+    var autoTimer;
+    var currentIndex = 0;
+    var cardWidth = 322;
+    var isHovered = false;
+    var hasStarted = false;
+    var finished = false;
+    var hint = document.querySelector('.practice-hint');
+
+    function updateCardWidth(){
+      var gap = 22;
+      try{
+        var styles = window.getComputedStyle(scroller);
+        gap = parseFloat(styles.gap) || 22;
+      }catch(e){}
+      if(cards[0]) cardWidth = cards[0].offsetWidth + gap;
+    }
+
+    function scrollToIndex(idx){
+      var left = idx * cardWidth;
+      scroller.scrollTo({left: left, behavior: 'smooth'});
+    }
+
+    function startAuto(){
+      if(finished) return;
+      clearInterval(autoTimer);
+      autoTimer = setInterval(function(){
+        if(isHovered) return;
+        currentIndex++;
+        if(currentIndex >= cards.length){
+          currentIndex = cards.length -1;
+          clearInterval(autoTimer);
+          finished = true;
+          if(hint) hint.innerHTML = '<span style="color:#2C5AA0">✓</span> All practice areas viewed — scroll back to revisit';
+          return;
+        }
+        scrollToIndex(currentIndex);
+        // check if we reached near end
+        if(scroller.scrollLeft + scroller.clientWidth >= scroller.scrollWidth - 50){
+          clearInterval(autoTimer);
+          finished = true;
+          if(hint) hint.innerHTML = '<span style="color:#2C5AA0">✓</span> End reached — you explored all 6 areas';
+        }
+      }, 2200);
+    }
+
+    function pauseAuto(){ clearInterval(autoTimer); }
+
+    var startObserver = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting && !hasStarted){
+          hasStarted = true;
+          updateCardWidth();
+          setTimeout(startAuto, 800);
+        }
+      });
+    }, {threshold: 0.35});
+    startObserver.observe(scroller);
+
+    scroller.addEventListener('mouseenter', function(){ isHovered = true; });
+    scroller.addEventListener('mouseleave', function(){ isHovered = false; });
+    scroller.addEventListener('touchstart', function(){ isHovered = true; pauseAuto(); }, {passive:true});
+    scroller.addEventListener('touchend', function(){ 
+      setTimeout(function(){ isHovered = false; if(!finished) startAuto(); }, 1800);
+    }, {passive:true});
+    scroller.addEventListener('wheel', function(){ if(!finished){ pauseAuto(); finished = true; if(hint) hint.textContent = 'Manual scroll engaged — auto-scroll paused'; } }, {passive:true});
+    scroller.addEventListener('scroll', function(){
+      if(!cardWidth) return;
+      var newIdx = Math.round(scroller.scrollLeft / cardWidth);
+      if(newIdx >=0 && newIdx < cards.length) currentIndex = newIdx;
+    });
+    window.addEventListener('resize', function(){ updateCardWidth(); });
+  })();
+
+  // ---- HERO EXTRA SLIDE-UP PARALLAX ON SCROLL ----
+  (function(){
+    var hero = document.querySelector('.hero');
+    var content = document.querySelector('.hero-content');
+    if(!hero || !content) return;
+    var ticking = false;
+    window.addEventListener('scroll', function(){
+      if(ticking) return;
+      ticking = true;
+      requestAnimationFrame(function(){
+        var scrolled = window.scrollY;
+        if(scrolled < window.innerHeight){
+          var offset = scrolled * 0.22;
+          var opacity = Math.max(0.2, 1 - scrolled / 700);
+          content.style.transform = 'translateY(' + offset + 'px)';
+          content.style.opacity = opacity;
+        }
+        ticking = false;
+      });
+    }, {passive:true});
+  })();
 })();
 </script>
 </body>
