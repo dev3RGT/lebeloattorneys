@@ -1,0 +1,1123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lebelo Raseboye Attorneys</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0F1E33;
+    --navy-2:#132A4B;
+    --blue:#173B6B;
+    --blue-light:#2C5AA0;
+    --gold:#C5A880;
+    --gold-2:#E6D0A8;
+    --cream:#FAF9F7;
+    --ink:#1A1A1A;
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Inter',sans-serif;
+    background:var(--cream);
+    color:var(--ink);
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block;}
+  button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit;}
+  a{color:inherit;text-decoration:none;}
+  input,textarea,select{font-family:inherit;font-size:inherit;}
+  ::selection{background:rgba(197,168,128,.35);}
+  .serif{font-family:'Playfair Display',serif;}
+  .container{max-width:1240px;margin:0 auto;padding:0 24px;}
+  .eyebrow{font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);font-weight:600;}
+  section{scroll-margin-top:84px;}
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1);}
+  .reveal.in-view{opacity:1;transform:translateY(0);}
+
+  /* ---------- HEADER (BLUE) ---------- */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:linear-gradient(120deg,var(--navy) 0%, var(--blue) 130%);
+    border-bottom:1px solid rgba(197,168,128,.25);
+    backdrop-filter:blur(10px);
+  }
+  .header-inner{
+    max-width:1240px;margin:0 auto;padding:0 24px;
+    height:78px;display:flex;align-items:center;justify-content:space-between;
+  }
+  .logo{text-align:left;}
+  .logo-main{font-size:17px;font-weight:700;letter-spacing:.16em;color:#fff;}
+  .logo-sub{font-size:10px;letter-spacing:.4em;color:var(--gold-2);margin-top:3px;font-weight:500;}
+  nav.desktop-nav{display:none;align-items:center;gap:34px;}
+  nav.desktop-nav button{
+    font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-weight:500;
+    color:rgba(255,255,255,.72);padding-bottom:6px;border-bottom:2px solid transparent;
+    transition:color .2s ease,border-color .2s ease;
+  }
+  nav.desktop-nav button:hover{color:#fff;}
+  nav.desktop-nav button.active{color:#fff;border-color:var(--gold);}
+  .book-btn{
+    display:none;align-items:center;gap:8px;height:42px;padding:0 22px;border-radius:999px;
+    background:var(--gold);color:var(--navy);font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+    font-weight:700;transition:background .2s ease,transform .2s ease;white-space:nowrap;
+  }
+  .book-btn:hover{background:var(--gold-2);transform:translateY(-1px);}
+  .book-btn span{width:20px;height:20px;border-radius:999px;background:var(--navy);color:var(--gold);
+    display:grid;place-items:center;font-size:12px;}
+  .burger{width:42px;height:42px;border-radius:999px;border:1px solid rgba(255,255,255,.25);
+    display:grid;place-items:center;flex-shrink:0;}
+  .burger div{width:16px;height:1.5px;background:#fff;transition:transform .25s ease,opacity .25s ease;}
+  .burger-lines{display:flex;flex-direction:column;gap:4px;}
+  .burger.open .l1{transform:rotate(45deg) translateY(5.5px);}
+  .burger.open .l2{opacity:0;}
+  .burger.open .l3{transform:rotate(-45deg) translateY(-5.5px);}
+  .mobile-nav{display:none;flex-direction:column;gap:20px;padding:28px 24px 32px;
+    background:var(--navy);border-top:1px solid rgba(255,255,255,.1);}
+  .mobile-nav.open{display:flex;}
+  .mobile-nav button{
+    text-align:left;font-size:13px;letter-spacing:.16em;text-transform:uppercase;font-weight:500;
+    color:rgba(255,255,255,.75);display:flex;align-items:center;gap:12px;
+  }
+  .mobile-nav button.active{color:#fff;}
+  .mobile-nav button .dot{width:6px;height:6px;border-radius:999px;background:transparent;}
+  .mobile-nav button.active .dot{background:var(--gold);}
+  .mobile-nav .mobile-cta{margin-top:6px;height:48px;border-radius:999px;background:var(--gold);
+    color:var(--navy);font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;
+    justify-content:center;}
+
+  @media(min-width:1024px){
+    nav.desktop-nav{display:flex;}
+    .book-btn{display:inline-flex;}
+    .burger{display:none;}
+  }
+
+  /* ---------- HERO (FULL BLEED IMAGE) ---------- */
+  .hero{
+    position:relative;
+    min-height:100vh;
+    min-height:100svh;
+    display:flex;
+    align-items:flex-end;
+    overflow:hidden;
+    background-image:
+      linear-gradient(90deg, rgba(10,20,36,.92) 0%, rgba(10,20,36,.62) 48%, rgba(10,20,36,.28) 100%),
+      linear-gradient(0deg, rgba(10,20,36,.85) 0%, rgba(10,20,36,.15) 38%, rgba(10,20,36,.05) 60%),
+      url('https://i.ibb.co/Qj6YRjMk/herooffi.png');
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+  }
+  .hero-content{
+    position:relative;z-index:2;width:100%;
+    padding:140px 24px 64px;
+    max-width:1240px;margin:0 auto;
+  }
+  .hero-badge{
+    display:inline-flex;align-items:center;gap:8px;padding:7px 16px;border-radius:999px;
+    border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.08);
+    font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.85);
+    backdrop-filter:blur(6px);
+  }
+  .hero-badge .dot{width:6px;height:6px;border-radius:999px;background:var(--gold);}
+  .hero h1{
+    margin-top:24px;color:#fff;font-size:38px;line-height:1.02;letter-spacing:-.02em;
+    max-width:720px;
+  }
+  .hero h1 em{display:block;font-style:italic;font-weight:500;color:var(--gold-2);margin-top:4px;}
+  .hero p.lede{
+    margin-top:22px;max-width:560px;font-size:15.5px;line-height:1.7;color:rgba(255,255,255,.82);
+  }
+  .hero-actions{margin-top:34px;display:flex;flex-wrap:wrap;gap:16px;}
+  .btn-solid{
+    height:48px;padding:0 30px;border-radius:999px;background:var(--gold);color:var(--navy);
+    font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;
+    transition:background .2s ease,transform .2s ease;
+  }
+  .btn-solid:hover{background:var(--gold-2);transform:translateY(-2px);}
+  .btn-ghost{
+    height:48px;padding:0 30px;border-radius:999px;border:1px solid rgba(255,255,255,.4);
+    color:#fff;background:rgba(255,255,255,.06);font-size:12px;letter-spacing:.16em;
+    text-transform:uppercase;font-weight:600;backdrop-filter:blur(6px);
+    transition:border-color .2s ease,background .2s ease,transform .2s ease;
+  }
+  .btn-ghost:hover{border-color:#fff;background:rgba(255,255,255,.14);transform:translateY(-2px);}
+  .hero-stats{
+    margin-top:52px;display:flex;flex-wrap:wrap;gap:0;
+    border-radius:20px;overflow:hidden;border:1px solid rgba(255,255,255,.16);
+    background:rgba(10,20,36,.45);backdrop-filter:blur(10px);max-width:720px;
+  }
+  .hero-stats .stat{
+    flex:1 1 140px;padding:16px 20px;border-right:1px solid rgba(255,255,255,.12);
+  }
+  .hero-stats .stat:last-child{border-right:none;}
+  .hero-stats .stat b{display:block;color:#fff;font-size:13px;letter-spacing:.04em;}
+  .hero-stats .stat span{display:block;margin-top:3px;font-size:10.5px;letter-spacing:.1em;
+    text-transform:uppercase;color:rgba(255,255,255,.55);}
+
+  @media(min-width:768px){
+    .hero h1{font-size:56px;}
+  }
+
+  /* ---------- ABOUT STRIP - HOVER FEATURE CARDS BLUE GRADIENT SHINY ---------- */
+  .about-strip{border-top:1px solid rgba(15,30,51,.07);border-bottom:1px solid rgba(15,30,51,.07);
+    background:#fff;padding:16px 0 24px;}
+  .about-grid{display:grid;grid-template-columns:1fr;gap:28px;padding:32px 0 56px;}
+
+  /* Hover Feature Card - vanilla translation of motion/react version */
+  .hf-card-wrap{
+    position:relative;display:flex;flex-direction:column;width:100%;
+    cursor:pointer;outline:none;
+  }
+  .hf-card-main{
+    position:relative;display:flex;flex-direction:column;
+    border-radius:28px;border:1px solid rgba(197,168,128,.28);
+    height:264px;z-index:5;
+    background: linear-gradient(135deg, #0F1E33 0%, #132A4B 24%, #173B6B 58%, #2C5AA0 100%);
+    overflow:hidden;isolation:isolate;
+    transition: transform .55s cubic-bezier(.16,1,.3,1), border-color .3s ease, box-shadow .35s ease;
+    will-change:transform;
+  }
+  .hf-card-wrap:hover .hf-card-main,
+  .hf-card-wrap:focus-within .hf-card-main{
+    transform: translateY(-6px) scale(1.01);
+    border-color: rgba(197,168,128,.55);
+    box-shadow: 0 28px 60px rgba(15,30,51,.35), inset 0 1px 0 rgba(255,255,255,.12);
+  }
+  .hf-card-wrap:active .hf-card-main{transform: scale(.98);}
+
+  /* soft glow layers */
+  .hf-card-main::before{
+    content:"";position:absolute;inset:0;
+    background:
+      radial-gradient(600px circle at 0% 0%, rgba(44,90,160,.45), transparent 60%),
+      radial-gradient(420px circle at 100% 100%, rgba(197,168,128,.20), transparent 60%),
+      radial-gradient(300px circle at 50% -10%, rgba(255,255,255,.10), transparent 60%);
+    pointer-events:none;z-index:0;
+  }
+  /* shiny sweep */
+  .hf-card-main::after{
+    content:"";position:absolute;top:-50%;left:-80%;width:70%;height:200%;
+    background: linear-gradient(105deg, transparent 35%, rgba(255,255,255,.22) 50%, transparent 65%);
+    transform: rotate(10deg) translateX(0);
+    transition: transform .9s cubic-bezier(.16,1,.3,1);
+    pointer-events:none;z-index:1;opacity:.9;
+  }
+  .hf-card-wrap:hover .hf-card-main::after{transform: rotate(10deg) translateX(280%);}
+  
+  .hf-card-content{position:relative;z-index:2;padding:26px 24px 18px;display:flex;flex-direction:column;gap:18px;height:100%;}
+  .hf-top-row{display:flex;justify-content:space-between;align-items:flex-start;}
+  .hf-name{font-family:'Playfair Display',serif;font-size:21px;font-weight:600;color:#fff;letter-spacing:-.01em;line-height:1.15;max-width:16ch;}
+  .hf-badge{font-size:10px;letter-spacing:.18em;text-transform:uppercase;padding:5px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.18);color:rgba(255,255,255,.75);background:rgba(255,255,255,.08);backdrop-filter:blur(6px);}
+  .hf-icon{width:58px;height:58px;border-radius:999px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);display:grid;place-items:center;backdrop-filter:blur(10px);box-shadow:inset 0 1px 0 rgba(255,255,255,.15);}
+  .hf-icon svg{width:28px;height:28px;stroke:#E6D0A8;stroke-width:1.7;fill:none;stroke-linecap:round;stroke-linejoin:round;}
+  .hf-mid{margin-top:6px;}
+  .hf-num{font-size:11px;letter-spacing:.22em;color:rgba(255,255,255,.45);font-weight:600;margin-top:auto;display:flex;align-items:center;gap:8px;}
+  .hf-num::after{content:"";height:1px;width:32px;background:linear-gradient(90deg, rgba(197,168,128,.5), transparent);display:inline-block;}
+  .hf-fade{position:absolute;bottom:0;left:0;right:0;height:96px;background:linear-gradient(to top, rgba(8,18,35,.92) 8%, transparent 100%);pointer-events:none;z-index:1;}
+
+  /* Reveal panel - matches motion variants rest: opacity 0.2 y -30, hover opacity 1 y 0 */
+  .hf-card-reveal{
+    overflow:hidden;width:92%;align-self:center;z-index:1;
+    margin-top:-2px;
+    opacity:0;transform:translateY(-30px);
+    transition: opacity .55s cubic-bezier(.16,1,.3,1), transform .6s cubic-bezier(.16,1,.3,1);
+    pointer-events:none;
+  }
+  .hf-card-wrap:hover .hf-card-reveal,
+  .hf-card-wrap:focus-within .hf-card-reveal{
+    opacity:1;transform:translateY(0);
+  }
+  .hf-reveal-inner{
+    padding:18px 20px 20px;position:relative;
+    border:1px solid rgba(15,30,51,.08);border-top:0;
+    border-radius:0 0 22px 22px;background:#fff;
+    box-shadow:0 18px 42px rgba(15,30,51,.10);
+  }
+  .hf-reveal-inner::before{
+    content:"";position:absolute;top:-12px;left:-1px;right:-1px;height:24px;
+    background:linear-gradient(to bottom, #fff, transparent);pointer-events:none;
+  }
+  .hf-reveal-inner p{font-size:13.5px;line-height:1.65;color:rgba(26,26,26,.66);}
+  .hf-reveal-inner p strong{color:var(--navy);font-weight:600;}
+
+  @media(min-width:768px){
+    .about-grid{grid-template-columns:repeat(3,1fr);}
+  }
+
+  /* ---------- CORE PRACTICE AREAS - ALL BLUE GRADIENT SHINY ---------- */
+  .practice{padding:88px 0;background:linear-gradient(180deg, #fff 0%, #fbfaf8 100%);}
+  .practice-head{display:flex;flex-direction:column;gap:22px;}
+  .practice-head h2{font-size:32px;color:var(--navy);line-height:1.0;margin-top:10px;}
+  .practice-head p{max-width:380px;font-size:13.5px;line-height:1.7;color:rgba(26,26,26,.6);}
+  @media(min-width:768px){
+    .practice-head{flex-direction:row;justify-content:space-between;align-items:flex-end;}
+    .practice-head h2{font-size:44px;}
+  }
+  .practice-scroller{
+    margin-top:48px;display:flex;gap:22px;overflow-x:auto;padding:20px 6px 32px;
+    perspective:1800px;scroll-snap-type:x proximity;
+  }
+  .practice-scroller::-webkit-scrollbar{height:6px;}
+  .practice-scroller::-webkit-scrollbar-thumb{background:rgba(15,30,51,.18);border-radius:999px;}
+
+  .practice-card{
+    flex:0 0 300px;scroll-snap-align:start;
+    border-radius:24px;padding:28px 26px 26px;
+    transform-style:preserve-3d;will-change:transform,opacity;
+    transition:transform .85s cubic-bezier(.16,1,.3,1),opacity .85s cubic-bezier(.16,1,.3,1),box-shadow .4s ease, border-color .4s ease;
+    opacity:0;
+    /* ALL BLUE GRADIENT + SHINY */
+    background: linear-gradient(145deg, #0F1E33 0%, #112642 18%, #173B6B 52%, #2C5AA0 100%);
+    color:#fff;
+    border:1px solid rgba(197,168,128,.24);
+    box-shadow: 0 18px 42px rgba(15,30,51,.22), inset 0 1px 0 rgba(255,255,255,.12);
+    position:relative;overflow:hidden;isolation:isolate;
+  }
+  /* unified 3D entry */
+  .practice-card.side-left{transform:translateX(-160px) rotateY(-38deg) rotateX(5deg) scale(.92);}
+  .practice-card.side-right{transform:translateX(160px) rotateY(38deg) rotateX(5deg) scale(.92);}
+  .practice-card.in-view{transform:rotateY(-8deg) rotateX(2deg) scale(1);opacity:1;}
+  .practice-card.in-view.side-right{transform:rotateY(8deg) rotateX(2deg) scale(1);opacity:1;}
+  .practice-card:hover{
+    transform:rotateY(0deg) rotateX(0deg) translateY(-10px) scale(1.04) !important;
+    box-shadow: 0 28px 60px rgba(15,30,51,.40), 0 0 0 1px rgba(197,168,128,.18) inset, inset 0 1px 0 rgba(255,255,255,.18);
+    border-color: rgba(197,168,128,.48);
+  }
+
+  /* gradient glow orbs */
+  .practice-card::before{
+    content:"";position:absolute;inset:0;
+    background:
+      radial-gradient(520px circle at -10% -15%, rgba(44,90,160,.55), transparent 62%),
+      radial-gradient(380px circle at 115% 110%, rgba(197,168,128,.22), transparent 58%),
+      radial-gradient(280px circle at 50% 0%, rgba(255,255,255,.10), transparent 60%);
+    pointer-events:none;z-index:0;
+  }
+  /* moving shine */
+  .practice-card::after{
+    content:"";position:absolute;top:-60%;left:-70%;width:75%;height:220%;
+    background: linear-gradient(100deg, transparent 38%, rgba(255,255,255,.20) 50%, transparent 62%);
+    transform: rotate(12deg) translateX(0);
+    transition: transform .95s cubic-bezier(.16,1,.3,1);
+    pointer-events:none;z-index:1;
+  }
+  .practice-card:hover::after{transform: rotate(12deg) translateX(300%);}
+  .practice-card > *{position:relative;z-index:2;}
+
+  .practice-card .pc-top{display:flex;justify-content:space-between;align-items:flex-start;}
+  .practice-card .pc-id{font-size:11px;letter-spacing:.22em;font-weight:600;color:rgba(255,255,255,.52);}
+  .practice-card .pc-arrow{
+    width:28px;height:28px;border-radius:999px;display:grid;place-items:center;
+    font-size:12px;border:1px solid rgba(255,255,255,.22);color:rgba(255,255,255,.7);
+    background: rgba(255,255,255,.06);backdrop-filter:blur(6px);
+    transition: all .25s ease;
+  }
+  .practice-card:hover .pc-arrow{
+    border-color:var(--gold);color:var(--gold);background:rgba(197,168,128,.14);
+    transform: rotate(45deg);
+  }
+  .practice-card h3{
+    margin-top:30px;font-size:19px;line-height:1.25;font-family:'Playfair Display',serif;color:#fff;letter-spacing:-.01em;
+  }
+  .practice-card p{margin-top:12px;font-size:13.2px;line-height:1.65;color:rgba(255,255,255,.72);}
+  .practice-card .pc-rule{margin-top:26px;height:1px;width:100%;background:linear-gradient(90deg, rgba(255,255,255,.26), transparent);}
+  .practice-card .pc-shine-dot{
+    position:absolute;top:18px;right:62px;width:6px;height:6px;border-radius:999px;background:var(--gold);
+    box-shadow:0 0 12px rgba(197,168,128,.8);opacity:.9;z-index:3;
+  }
+  .practice-hint{margin-top:14px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+    color:rgba(26,26,26,.35);display:flex;align-items:center;gap:8px;}
+  .practice-hint svg{width:16px;height:16px;}
+
+  /* ---------- WHY CHOOSE (DARK) ---------- */
+  .why{background:var(--navy);color:#fff;}
+  .why-inner{padding:72px 0 96px;display:grid;grid-template-columns:1fr;gap:48px;}
+  .why h2{margin-top:14px;font-size:30px;line-height:1.0;}
+  .why-list{margin-top:38px;display:flex;flex-direction:column;gap:24px;}
+  .why-item{display:flex;gap:16px;}
+  .why-check{margin-top:3px;width:20px;height:20px;border-radius:999px;background:rgba(197,168,128,.15);
+    border:1px solid rgba(197,168,128,.35);display:grid;place-items:center;color:var(--gold);
+    font-size:11px;flex-shrink:0;}
+  .why-item b{display:block;font-size:14px;font-weight:500;letter-spacing:.02em;}
+  .why-item span{display:block;margin-top:4px;font-size:13px;line-height:1.6;color:rgba(255,255,255,.6);
+    max-width:42ch;}
+  .why-quote{border-radius:20px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.04);
+    padding:34px;backdrop-filter:blur(8px);position:relative;}
+  .why-quote .qmark{font-family:'Playfair Display',serif;font-size:44px;line-height:1;color:var(--gold);}
+  .why-quote p{margin-top:8px;font-family:'Playfair Display',serif;font-size:20px;line-height:1.35;}
+  .why-quote .attr{margin-top:30px;display:flex;align-items:center;gap:12px;}
+  .why-quote .attr .line{height:1px;width:40px;background:rgba(197,168,128,.5);}
+  .why-quote .attr span{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.5);}
+  .why-mini{margin-top:24px;display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  .why-mini div{border-radius:12px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);
+    padding:16px;font-size:12px;color:rgba(255,255,255,.6);}
+  .why-mini div b{display:block;color:#fff;font-weight:500;margin-bottom:4px;}
+  @media(min-width:1024px){
+    .why-inner{grid-template-columns:.9fr 1.1fr;gap:64px;padding:96px 0;}
+    .why h2{font-size:40px;}
+  }
+
+  /* ---------- FOUNDERS ---------- */
+  .founders{padding:88px 0;}
+  .founders-head{max-width:760px;}
+  .founders-head h2{margin-top:12px;font-size:30px;color:var(--navy);line-height:1.0;}
+  .founders-head p{margin-top:16px;font-size:14px;line-height:1.7;color:rgba(26,26,26,.6);max-width:56ch;}
+  .founders-grid{margin-top:48px;display:grid;grid-template-columns:1fr;gap:24px;}
+  .founder-card{border-radius:24px;border:1px solid rgba(15,30,51,.08);background:#fff;padding:36px;
+    transition:box-shadow .3s ease,transform .3s ease;}
+  .founder-card:hover{box-shadow:0 20px 55px rgba(15,30,51,.08);transform:translateY(-3px);}
+  .founder-top{display:flex;justify-content:space-between;align-items:flex-start;}
+  .founder-initials{width:64px;height:64px;border-radius:999px;background:var(--navy);color:var(--gold);
+    display:grid;place-items:center;font-family:'Playfair Display',serif;font-size:18px;letter-spacing:.1em;
+    border:3px solid rgba(197,168,128,.6);}
+  .founder-role-tag{font-size:10px;letter-spacing:.2em;text-transform:uppercase;padding:6px 12px;
+    border-radius:999px;border:1px solid rgba(15,30,51,.1);color:rgba(15,30,51,.5);}
+  .founder-card h3{margin-top:30px;font-size:20px;color:var(--navy);}
+  .founder-card .role{margin-top:4px;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);
+    font-weight:600;}
+  .founder-card p{margin-top:18px;font-size:13.5px;line-height:1.7;color:rgba(26,26,26,.6);}
+  .founder-foot{margin-top:22px;display:flex;gap:10px;align-items:flex-start;}
+  .founder-foot .line{height:1px;width:44px;background:rgba(15,30,51,.1);margin-top:6px;}
+  .founder-foot span{font-size:11px;line-height:1.6;color:rgba(15,30,51,.4);}
+  @media(min-width:768px){
+    .founders-grid{grid-template-columns:1fr 1fr;}
+    .founders-head h2{font-size:44px;}
+  }
+
+  /* ---------- OFFICES ---------- */
+  .offices{border-top:1px solid rgba(15,30,51,.07);background:#fff;}
+  .offices-inner{padding:80px 0;}
+  .offices-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:16px;}
+  .offices-head h2{margin-top:12px;font-size:30px;color:var(--navy);line-height:1.0;}
+  .offices-head .sub{font-size:12px;color:rgba(26,26,26,.45);letter-spacing:.02em;}
+  .offices-grid{margin-top:40px;display:grid;grid-template-columns:1fr;gap:24px;}
+  .office-cards{display:grid;grid-template-columns:1fr;gap:1px;background:rgba(15,30,51,.1);
+    border:1px solid rgba(15,30,51,.1);border-radius:20px;overflow:hidden;}
+  .office-cell{background:var(--cream);padding:28px;}
+  .office-cell.alt{background:#fff;}
+  .tag-primary{display:inline-flex;font-size:10px;letter-spacing:.2em;text-transform:uppercase;
+    color:#fff;background:var(--navy);padding:4px 10px;border-radius:999px;}
+  .tag-secondary{display:inline-flex;font-size:10px;letter-spacing:.2em;text-transform:uppercase;
+    border:1px solid rgba(15,30,51,.15);color:rgba(15,30,51,.6);padding:4px 10px;border-radius:999px;}
+  .office-cell h3{margin-top:18px;font-size:17px;color:var(--navy);font-family:'Playfair Display',serif;}
+  .office-cell p{margin-top:8px;font-size:13px;line-height:1.6;color:rgba(26,26,26,.6);}
+  .office-cell .fine{color:rgba(15,30,51,.5);}
+  .office-cell hr{margin-top:22px;border:none;height:1px;background:rgba(15,30,51,.1);}
+  .office-cell .footline{margin-top:16px;display:flex;align-items:center;gap:8px;font-size:11px;
+    color:rgba(15,30,51,.6);}
+  .office-cell .footline .ic{width:20px;height:20px;border-radius:999px;background:#fff;
+    border:1px solid rgba(15,30,51,.1);display:grid;place-items:center;}
+  .map-card{border-radius:20px;overflow:hidden;border:1px solid rgba(15,30,51,.1);
+    background:var(--navy);position:relative;height:220px;}
+  .map-dots{position:absolute;inset:0;opacity:.08;background-image:radial-gradient(#fff 1px,transparent 1px);
+    background-size:18px 18px;}
+  .map-pill{position:absolute;left:16px;bottom:16px;background:#fff;border-radius:999px;padding:6px 12px;
+    display:flex;align-items:center;gap:8px;font-size:11px;color:var(--navy);
+    box-shadow:0 6px 18px rgba(0,0,0,.15);}
+  .map-pill .dotgreen{width:6px;height:6px;border-radius:999px;background:#10B981;}
+  .hours-card{border-radius:20px;border:1px solid rgba(15,30,51,.1);background:var(--cream);padding:26px;}
+  .hours-title{display:flex;align-items:center;gap:10px;}
+  .hours-title .ic{width:28px;height:28px;border-radius:999px;background:var(--navy);color:var(--gold);
+    display:grid;place-items:center;font-size:13px;}
+  .hours-title span{font-family:'Playfair Display',serif;font-size:15px;color:var(--navy);}
+  .hours-row{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid rgba(15,30,51,.06);
+    font-size:13px;}
+  .hours-row:last-child{border-bottom:none;}
+  .hours-row span:first-child{color:rgba(26,26,26,.6);}
+  .hours-row span:last-child{font-weight:500;color:var(--navy);}
+  .hours-row.closed span:last-child{color:rgba(26,26,26,.4);}
+  .hours-note{margin-top:18px;font-size:11px;line-height:1.6;color:rgba(15,30,51,.5);
+    background:#fff;border:1px solid rgba(15,30,51,.06);border-radius:12px;padding:10px 12px;}
+  @media(min-width:768px){
+    .office-cards{grid-template-columns:1fr 1fr;}
+  }
+  @media(min-width:1024px){
+    .offices-grid{grid-template-columns:1.1fr .9fr;}
+    .offices-head h2{font-size:40px;}
+  }
+
+  /* ---------- CONTACT ---------- */
+  .contact{padding:88px 0;}
+  .contact-inner{display:grid;grid-template-columns:1fr;gap:48px;}
+  .contact-head h2{margin-top:12px;font-size:32px;color:var(--navy);line-height:1.0;}
+  .contact-head p{margin-top:16px;font-size:13.5px;line-height:1.7;color:rgba(26,26,26,.6);max-width:48ch;}
+  form{margin-top:40px;display:grid;grid-template-columns:1fr;gap:16px;}
+  .field{display:flex;flex-direction:column;gap:6px;}
+  .field label{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(15,30,51,.6);font-weight:600;}
+  .field input,.field select,.field textarea{
+    height:48px;border-radius:999px;border:1px solid rgba(15,30,51,.1);background:#fff;padding:0 20px;
+    font-size:13.5px;outline:none;transition:border-color .2s ease,box-shadow .2s ease;
+  }
+  .field textarea{height:auto;border-radius:20px;padding:18px 20px;line-height:1.6;resize:none;}
+  .field input:focus,.field select:focus,.field textarea:focus{
+    border-color:rgba(15,30,51,.3);box-shadow:0 0 0 3px rgba(15,30,51,.08);
+  }
+  .field.error input,.field.error select,.field.error textarea{border-color:#fca5a5;}
+  .field .err{font-size:11px;color:#ef4444;padding:0 8px;}
+  .field-full{grid-column:1/-1;}
+  .form-foot{grid-column:1/-1;display:flex;flex-wrap:wrap;align-items:center;gap:16px;margin-top:6px;}
+  .submit-btn{height:48px;padding:0 32px;border-radius:999px;background:var(--navy);color:#fff;
+    font-size:12px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;transition:.2s ease;}
+  .submit-btn:hover{background:#000;}
+  .disclaimer-mini{font-size:11px;color:rgba(26,26,26,.4);max-width:32ch;line-height:1.5;}
+  .info-card{border-radius:24px;border:1px solid rgba(15,30,51,.08);background:#fff;padding:32px;}
+  .info-card h3{font-family:'Playfair Display',serif;font-size:18px;color:var(--navy);}
+  .info-block{margin-top:22px;}
+  .info-block .lbl{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:rgba(15,30,51,.4);}
+  .info-block .val{margin-top:6px;font-size:13.5px;line-height:1.6;color:rgba(26,26,26,.7);}
+  .info-divider{height:1px;background:rgba(15,30,51,.06);margin:20px 0;}
+  .social-row{margin-top:28px;display:flex;gap:12px;}
+  .social-row a{width:36px;height:36px;border-radius:999px;border:1px solid rgba(15,30,51,.1);
+    display:grid;place-items:center;color:rgba(15,30,51,.6);transition:.2s ease;}
+  .social-row a:hover{background:var(--navy);color:#fff;border-color:var(--navy);}
+  .info-disclaimer{margin-top:28px;border-radius:12px;background:var(--cream);border:1px solid rgba(15,30,51,.06);
+    padding:14px;font-size:11.5px;line-height:1.6;color:rgba(26,26,26,.5);}
+  .info-disclaimer b{color:rgba(15,30,51,.7);}
+  .urgent-card{margin-top:24px;border-radius:20px;background:var(--navy);color:#fff;padding:26px;display:flex;gap:16px;}
+  .urgent-card .ic{width:40px;height:40px;border-radius:999px;background:rgba(255,255,255,.1);
+    display:grid;place-items:center;color:var(--gold);flex-shrink:0;font-size:16px;}
+  .urgent-card b{font-size:13px;font-weight:600;}
+  .urgent-card p{margin-top:5px;font-size:12.5px;line-height:1.6;color:rgba(255,255,255,.65);}
+  @media(min-width:768px){
+    form{grid-template-columns:1fr 1fr;}
+  }
+  @media(min-width:1024px){
+    .contact-inner{grid-template-columns:1.15fr .85fr;gap:64px;}
+    .contact-head h2{font-size:44px;}
+  }
+
+  /* ---------- FOOTER ---------- */
+  footer{background:var(--navy);color:#fff;border-top:1px solid rgba(255,255,255,.1);}
+  .footer-grid{padding:56px 0;display:grid;grid-template-columns:1fr;gap:40px;}
+  .footer-logo{font-family:'Playfair Display',serif;font-size:15px;letter-spacing:.18em;}
+  .footer-sub{font-size:10px;letter-spacing:.4em;opacity:.6;margin-top:4px;}
+  .footer-grid p{margin-top:20px;font-size:12.5px;line-height:1.7;color:rgba(255,255,255,.6);max-width:28ch;}
+  .footer-social{margin-top:22px;display:flex;gap:8px;}
+  .footer-social a{width:32px;height:32px;border-radius:999px;background:rgba(255,255,255,.05);
+    border:1px solid rgba(255,255,255,.1);display:grid;place-items:center;color:rgba(255,255,255,.6);}
+  .footer-social a:hover{color:#fff;}
+  .footer-col-title{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.4);}
+  .footer-links{margin-top:16px;display:flex;flex-direction:column;gap:10px;}
+  .footer-links button{text-align:left;font-size:13px;color:rgba(255,255,255,.6);transition:.2s ease;}
+  .footer-links button:hover{color:#fff;}
+  .footer-contact{margin-top:16px;display:flex;flex-direction:column;gap:12px;font-size:12.5px;
+    line-height:1.6;color:rgba(255,255,255,.6);}
+  .footer-bottom{border-top:1px solid rgba(255,255,255,.1);}
+  .footer-bottom-inner{padding:20px 0;display:flex;flex-direction:column;gap:10px;font-size:11px;
+    letter-spacing:.02em;color:rgba(255,255,255,.4);}
+  @media(min-width:768px){
+    .footer-grid{grid-template-columns:1fr 1fr;}
+  }
+  @media(min-width:1024px){
+    .footer-grid{grid-template-columns:repeat(4,1fr);}
+    .footer-bottom-inner{flex-direction:row;justify-content:space-between;align-items:center;}
+  }
+
+  /* ---------- TOAST ---------- */
+  .toast{
+    position:fixed;bottom:24px;left:50%;transform:translate(-50%,120%);
+    background:var(--navy);color:#fff;border-radius:999px;padding:14px 22px;display:flex;align-items:center;
+    gap:12px;box-shadow:0 20px 55px rgba(0,0,0,.25);border:1px solid rgba(255,255,255,.1);z-index:100;
+    max-width:92vw;font-size:12.5px;transition:transform .35s cubic-bezier(.16,1,.3,1);
+  }
+  .toast.show{transform:translate(-50%,0);}
+  .toast .check{width:22px;height:22px;border-radius:999px;background:var(--gold);color:var(--navy);
+    display:grid;place-items:center;font-size:12px;flex-shrink:0;}
+  .toast button{margin-left:6px;color:rgba(255,255,255,.5);font-size:14px;}
+
+  @media(prefers-reduced-motion:reduce){
+    *{transition:none !important;animation:none !important;}
+    .reveal,.practice-card{opacity:1 !important;transform:none !important;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <button class="logo" data-nav="home" aria-label="Home">
+      <div class="logo-main">LEBELO RASEBOYE</div>
+      <div class="logo-sub">ATTORNEYS</div>
+    </button>
+    <nav class="desktop-nav">
+      <button data-nav="home" class="active">Home</button>
+      <button data-nav="about">About</button>
+      <button data-nav="practice">Practice Areas</button>
+      <button data-nav="founders">Founders</button>
+      <button data-nav="offices">Offices</button>
+      <button data-nav="contact">Contact</button>
+    </nav>
+    <div style="display:flex;align-items:center;gap:14px;">
+      <button class="book-btn" data-nav="contact">Book Consultation <span>&rarr;</span></button>
+      <button class="burger" id="burgerBtn" aria-label="Menu">
+        <div class="burger-lines">
+          <div class="l1"></div><div class="l2"></div><div class="l3"></div>
+        </div>
+      </button>
+    </div>
+  </div>
+  <div class="mobile-nav" id="mobileNav">
+    <button data-nav="home" class="active"><span class="dot"></span>Home</button>
+    <button data-nav="about"><span class="dot"></span>About</button>
+    <button data-nav="practice"><span class="dot"></span>Practice Areas</button>
+    <button data-nav="founders"><span class="dot"></span>Founders</button>
+    <button data-nav="offices"><span class="dot"></span>Offices</button>
+    <button data-nav="contact"><span class="dot"></span>Contact</button>
+    <button class="mobile-cta" data-nav="contact">Book Consultation</button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section id="home" class="hero">
+  <div class="hero-content">
+    <div class="hero-badge"><span class="dot"></span> Mokopane &bull; Limpopo &bull; South Africa</div>
+    <h1 class="serif">Trusted Legal Counsel<em>in Limpopo &amp; Beyond</em></h1>
+    <p class="lede">Lebelo Raseboye Attorneys is a South African law firm co-founded by Thabang Victor Raseboye and Lesiba Reuben Lebelo, providing general legal services, corporate law advice, and litigation support with integrity and dedication.</p>
+    <div class="hero-actions">
+      <button class="btn-solid" data-nav="practice">Our Services</button>
+      <button class="btn-ghost" data-nav="contact">Contact Us</button>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><b>2</b><span>Founders</span></div>
+      <div class="stat"><b>5+</b><span>Core Practice Areas</span></div>
+      <div class="stat"><b>Mokopane</b><span>Based</span></div>
+      <div class="stat"><b>Client</b><span>Focused</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT STRIP - HOVER FEATURE CARDS BLUE GRADIENT SHINY -->
+<section id="about" class="about-strip">
+  <div class="container">
+    <div class="about-grid">
+
+      <!-- Card 1: General Legal Services -->
+      <div class="hf-card-wrap reveal" tabindex="0">
+        <div class="hf-card-main">
+          <div class="hf-card-content">
+            <div class="hf-top-row">
+              <div class="hf-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/>
+                  <path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/>
+                  <path d="M7 21h10"/>
+                  <path d="M12 3v18"/>
+                  <path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/>
+                </svg>
+              </div>
+              <span class="hf-badge">01 — Core</span>
+            </div>
+            <div class="hf-mid">
+              <div class="hf-name">General Legal Services</div>
+            </div>
+            <div class="hf-num">TRUSTED COUNSEL</div>
+          </div>
+          <div class="hf-fade"></div>
+        </div>
+        <div class="hf-card-reveal">
+          <div class="hf-reveal-inner">
+            <p><strong>Comprehensive counsel for individuals and businesses.</strong> Delivered with clarity, care, and Limpopo-rooted expertise — from everyday advice to complex matters.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2: Corporate Law Advice -->
+      <div class="hf-card-wrap reveal" tabindex="0">
+        <div class="hf-card-main">
+          <div class="hf-card-content">
+            <div class="hf-top-row">
+              <div class="hf-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/>
+                  <path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/>
+                  <path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/>
+                  <path d="M10 6h4"/><path d="M10 10h4"/><path d="M10 14h4"/><path d="M10 18h4"/>
+                </svg>
+              </div>
+              <span class="hf-badge">02 — Corporate</span>
+            </div>
+            <div class="hf-mid">
+              <div class="hf-name">Corporate Law Advice</div>
+            </div>
+            <div class="hf-num">STRATEGIC GROWTH</div>
+          </div>
+          <div class="hf-fade"></div>
+        </div>
+        <div class="hf-card-reveal">
+          <div class="hf-reveal-inner">
+            <p><strong>Strategic guidance for commercial growth.</strong> Governance, contracts, compliance and risk management tailored for SMEs to established enterprises.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3: Litigation Support -->
+      <div class="hf-card-wrap reveal" tabindex="0">
+        <div class="hf-card-main">
+          <div class="hf-card-content">
+            <div class="hf-top-row">
+              <div class="hf-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="m14.5 12.5-8 8a2.119 2.119 0 1 1-3-3l8-8"/>
+                  <path d="m16 16 6-6"/>
+                  <path d="m8 8 6-6"/>
+                  <path d="m9 7 8 8"/>
+                  <path d="m21 11-8-8"/>
+                </svg>
+              </div>
+              <span class="hf-badge">03 — Litigation</span>
+            </div>
+            <div class="hf-mid">
+              <div class="hf-name">Litigation Support</div>
+            </div>
+            <div class="hf-num">RESOLUTE REPRESENTATION</div>
+          </div>
+          <div class="hf-fade"></div>
+        </div>
+        <div class="hf-card-reveal">
+          <div class="hf-reveal-inner">
+            <p><strong>Resolute representation in dispute resolution.</strong> From negotiation and mediation to courtroom advocacy — prepared, persuasive, and persistent.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CORE PRACTICE AREAS -->
+<section id="practice" class="practice">
+  <div class="container">
+    <div class="practice-head reveal">
+      <div>
+        <div class="eyebrow">Expertise</div>
+        <h2 class="serif">Core Practice Areas</h2>
+      </div>
+      <p>Comprehensive legal solutions tailored to your needs &mdash; rooted in Limpopo, respected across South Africa.</p>
+    </div>
+
+    <div class="practice-scroller" id="practiceScroller">
+      <div class="practice-card side-left" data-side="left"><div class="pc-shine-dot"></div>
+        <div class="pc-top"><span class="pc-id">01</span><span class="pc-arrow">&#8599;</span></div>
+        <h3>Family Law and Divorces</h3>
+        <p>Compassionate guidance through family matters, divorce, and custody with discretion.</p>
+        <div class="pc-rule"></div>
+      </div>
+      <div class="practice-card side-left" data-side="left"><div class="pc-shine-dot"></div>
+        <div class="pc-top"><span class="pc-id">02</span><span class="pc-arrow">&#8599;</span></div>
+        <h3>Criminal and Labour Law</h3>
+        <p>Vigorous defence and strategic labour dispute resolution for individuals and employers.</p>
+        <div class="pc-rule"></div>
+      </div>
+      <div class="practice-card side-left" data-side="left"><div class="pc-shine-dot"></div>
+        <div class="pc-top"><span class="pc-id">03</span><span class="pc-arrow">&#8599;</span></div>
+        <h3>Road Accident Fund Claims</h3>
+        <p>Expert assistance securing fair compensation for road accident injuries and losses.</p>
+        <div class="pc-rule"></div>
+      </div>
+      <div class="practice-card side-right" data-side="right"><div class="pc-shine-dot"></div>
+        <div class="pc-top"><span class="pc-id">04</span><span class="pc-arrow">&#8599;</span></div>
+        <h3>Commercial and Property Law</h3>
+        <p>End-to-end advisory for contracts, transactions, and property conveyancing matters.</p>
+        <div class="pc-rule"></div>
+      </div>
+      <div class="practice-card side-right" data-side="right"><div class="pc-shine-dot"></div>
+        <div class="pc-top"><span class="pc-id">05</span><span class="pc-arrow">&#8599;</span></div>
+        <h3>General Litigation</h3>
+        <p>Resolute representation in civil disputes and court proceedings at all levels.</p>
+        <div class="pc-rule"></div>
+      </div>
+      <div class="practice-card side-right" data-side="right"><div class="pc-shine-dot"></div>
+        <div class="pc-top"><span class="pc-id">06</span><span class="pc-arrow">&#8599;</span></div>
+        <h3>Will Planning &amp; Estates</h3>
+        <p>Thoughtful estate planning, wills, and administration to protect your legacy.</p>
+        <div class="pc-rule"></div>
+      </div>
+    </div>
+    <div class="practice-hint">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M8 5l-6 7 6 7"/><path d="M2 12h20"/><path d="M16 5l6 7-6 7"/></svg>
+      Scroll to explore all practice areas
+    </div>
+  </div>
+</section>
+
+<!-- WHY CHOOSE US -->
+<section class="why">
+  <div class="container why-inner">
+    <div class="reveal">
+      <div class="eyebrow">Why Choose Us</div>
+      <h2 class="serif">Built for results, grounded in trust.</h2>
+      <div class="why-list">
+        <div class="why-item">
+          <div class="why-check">&#10003;</div>
+          <div><b>Local Expertise in Mokopane &amp; Limpopo</b><span>Deep roots in the community with an understanding of regional courts and business.</span></div>
+        </div>
+        <div class="why-item">
+          <div class="why-check">&#10003;</div>
+          <div><b>Client-Centric Approach</b><span>Clear communication, realistic advice, and representation aligned to your goals.</span></div>
+        </div>
+        <div class="why-item">
+          <div class="why-check">&#10003;</div>
+          <div><b>Ethical &amp; Transparent Fees</b><span>Upfront fee structures and practical billing &mdash; no surprises.</span></div>
+        </div>
+        <div class="why-item">
+          <div class="why-check">&#10003;</div>
+          <div><b>Proven Litigation Experience</b><span>Prepared, persuasive, and persistent in negotiation and trial.</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="reveal">
+      <div class="why-quote">
+        <div class="qmark">&ldquo;</div>
+        <p class="serif">We founded Lebelo Raseboye Attorneys to make quality legal representation accessible in Mokopane &mdash; professional, ethical, and relentlessly client-focused.</p>
+        <div class="attr"><div class="line"></div><span>The Founding Partnership</span></div>
+        <div class="why-mini">
+          <div><b>Justice</b>We pursue fair outcomes with diligence and integrity.</div>
+          <div><b>Excellence</b>Preparation, precision, and professionalism in every matter.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOUNDERS -->
+<section id="founders" class="founders">
+  <div class="container">
+    <div class="founders-head reveal">
+      <div class="eyebrow">Leadership</div>
+      <h2 class="serif">Founded on Partnership, Built on Trust</h2>
+      <p>Co-founders Thabang Victor Raseboye and Lesiba Reuben Lebelo lead a practice committed to accessible, professional legal services for the Mokopane community and beyond.</p>
+    </div>
+    <div class="founders-grid">
+      <div class="founder-card reveal">
+        <div class="founder-top">
+          <div class="founder-initials">TR</div>
+          <div class="founder-role-tag">Co-Founder</div>
+        </div>
+        <h3 class="serif">Thabang Victor Raseboye</h3>
+        <div class="role">Co-Founder &bull; Lebelo Raseboye Attorneys</div>
+        <p>Dedicated to providing accessible, professional legal services to the Mokopane community and beyond. Committed to ethical practice and client-focused results.</p>
+        <div class="founder-foot"><div class="line"></div><span>Admitted Attorney &bull; South Africa<br>Limpopo Province Practice</span></div>
+      </div>
+      <div class="founder-card reveal">
+        <div class="founder-top">
+          <div class="founder-initials">LR</div>
+          <div class="founder-role-tag">Co-Founder</div>
+        </div>
+        <h3 class="serif">Lesiba Reuben Lebelo</h3>
+        <div class="role">Co-Founder &bull; Lebelo Raseboye Attorneys</div>
+        <p>Dedicated to providing accessible, professional legal services to the Mokopane community and beyond. Committed to ethical practice and client-focused results.</p>
+        <div class="founder-foot"><div class="line"></div><span>Admitted Attorney &bull; South Africa<br>Limpopo Province Practice</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OFFICES -->
+<section id="offices" class="offices">
+  <div class="container offices-inner">
+    <div class="offices-head reveal">
+      <div>
+        <div class="eyebrow">Find Us</div>
+        <h2 class="serif">Office Locations and Hours</h2>
+      </div>
+      <div class="sub">Mokopane &bull; Limpopo &bull; ~246 km from Johannesburg</div>
+    </div>
+    <div class="offices-grid">
+      <div class="office-cards reveal">
+        <div class="office-cell">
+          <span class="tag-primary">Primary Office</span>
+          <h3>9 Ruiter Road</h3>
+          <p>Mokopane, 0601<br>South Africa<br><span class="fine">~246 km from Johannesburg</span></p>
+          <hr>
+          <div class="footline"><span class="ic">&#8982;</span> Mokopane Central</div>
+        </div>
+        <div class="office-cell alt">
+          <span class="tag-secondary">Secondary Office</span>
+          <h3>69 Hooge Street</h3>
+          <p>Mokopane<br>South Africa<br><span class="fine">By appointment</span></p>
+          <hr>
+          <div class="footline"><span class="ic">&#10022;</span> Consultations by appointment</div>
+        </div>
+      </div>
+      <div class="reveal" style="display:flex;flex-direction:column;gap:24px;">
+        <div class="map-card">
+          <div class="map-dots"></div>
+          <svg viewBox="0 0 400 220" style="position:absolute;inset:0;width:100%;height:100%;">
+            <path d="M 60 160 Q 120 90 200 110 T 340 80" fill="none" stroke="white" stroke-opacity=".15" stroke-width="1" stroke-dasharray="4 6"/>
+            <circle cx="200" cy="108" r="28" fill="#C5A880" fill-opacity=".18"/>
+            <circle cx="200" cy="108" r="6" fill="#C5A880"/>
+            <circle cx="200" cy="108" r="10" fill="none" stroke="#C5A880" stroke-width="1"/>
+            <text x="200" y="145" text-anchor="middle" fill="white" font-size="11" letter-spacing="2" opacity=".7">MOKOPANE</text>
+            <text x="200" y="158" text-anchor="middle" fill="white" font-size="9" letter-spacing="2" opacity=".4">LIMPOPO, SA</text>
+          </svg>
+          <div class="map-pill"><span class="dotgreen"></span> Mokopane, Limpopo &mdash; Primary Location</div>
+        </div>
+        <div class="hours-card">
+          <div class="hours-title"><span class="ic">&#9719;</span><span class="serif">Operating Hours</span></div>
+          <div class="hours-row"><span>Monday &mdash; Thursday</span><span>8:00 AM &ndash; 5:00 PM</span></div>
+          <div class="hours-row"><span>Friday</span><span>8:00 AM &ndash; 3:00 PM</span></div>
+          <div class="hours-row"><span>Saturday</span><span>9:00 AM &ndash; 12:00 PM</span></div>
+          <div class="hours-row closed"><span>Sunday</span><span>Closed</span></div>
+          <div class="hours-note">Consultations are strictly by appointment. Contact us to schedule.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact">
+  <div class="container contact-inner">
+    <div class="reveal">
+      <div class="contact-head">
+        <div class="eyebrow">Contact</div>
+        <h2 class="serif">Let's discuss your matter</h2>
+        <p>Complete the form and our team will respond during operating hours. For urgent matters, please call the office directly.</p>
+      </div>
+      <form id="enquiryForm" novalidate>
+        <div class="field" id="f-name">
+          <label>Full Name</label>
+          <input type="text" placeholder="Thabo Molefe" id="in-name">
+          <span class="err" id="err-name"></span>
+        </div>
+        <div class="field" id="f-email">
+          <label>Email Address</label>
+          <input type="text" placeholder="you@company.co.za" id="in-email">
+          <span class="err" id="err-email"></span>
+        </div>
+        <div class="field" id="f-phone">
+          <label>Phone</label>
+          <input type="text" placeholder="+27 82 000 0000" id="in-phone">
+          <span class="err" id="err-phone"></span>
+        </div>
+        <div class="field" id="f-area">
+          <label>Practice Area</label>
+          <select id="in-area">
+            <option value="">Select an area</option>
+            <option>Family Law and Divorces</option>
+            <option>Criminal and Labour Law</option>
+            <option>Road Accident Fund Claims</option>
+            <option>Commercial and Property Law</option>
+            <option>General Litigation</option>
+            <option>Will Planning &amp; Estates</option>
+          </select>
+          <span class="err" id="err-area"></span>
+        </div>
+        <div class="field field-full" id="f-message">
+          <label>Message</label>
+          <textarea rows="5" placeholder="Briefly describe your legal matter..." id="in-message"></textarea>
+          <span class="err" id="err-message"></span>
+        </div>
+        <div class="form-foot">
+          <button type="submit" class="submit-btn">Send Enquiry</button>
+          <span class="disclaimer-mini">By submitting, you agree to our confidential handling of your information per LPC rules.</span>
+        </div>
+      </form>
+    </div>
+    <div class="reveal">
+      <div class="info-card">
+        <h3>Contact Information</h3>
+        <div class="info-block">
+          <div class="lbl">Primary Office</div>
+          <div class="val">9 Ruiter Road, Mokopane, 0601<br>South Africa</div>
+        </div>
+        <div class="info-block">
+          <div class="lbl">Secondary Office</div>
+          <div class="val">69 Hooge Street, Mokopane</div>
+        </div>
+        <div class="info-divider"></div>
+        <div class="info-block">
+          <div class="lbl">Hours</div>
+          <div class="val">Mon&ndash;Thu: 8:00 AM &ndash; 5:00 PM<br>Fri: 8:00 AM &ndash; 3:00 PM<br>Sat: 9:00 AM &ndash; 12:00 PM</div>
+        </div>
+        <div class="social-row">
+          <a href="#" aria-label="LinkedIn"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.48-2.24-1.68-2.24-.92 0-1.47.62-1.71 1.22-.09.21-.11.5-.11.8v5.79H9.85s.05-9.39 0-10.36h3.55v1.47c.47-.73 1.31-1.77 3.19-1.77 2.33 0 4.08 1.52 4.08 4.8v5.86zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V10.09h3.56v10.36z"/></svg></a>
+          <a href="#" aria-label="Facebook"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-7h2.3l.3-2.7h-2.6v-1.8c0-.8.2-1.3 1.4-1.3h1.5V4.9c-.3 0-1.2-.1-2.2-.1-2.2 0-3.7 1.3-3.7 3.8v2.1H8v2.7h2.5V21h3z"/></svg></a>
+        </div>
+        <div class="info-disclaimer"><b>Disclaimer:</b> Consultations by appointment only. Submission of this form does not create an attorney-client relationship.</div>
+      </div>
+      <div class="urgent-card">
+        <div class="ic">&#10022;</div>
+        <div>
+          <b>Need urgent assistance?</b>
+          <p>We respond to all enquiries within one business day. For time-sensitive matters, please visit our primary office in Mokopane.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container footer-grid">
+    <div>
+      <div class="footer-logo">LEBELO RASEBOYE</div>
+      <div class="footer-sub">ATTORNEYS</div>
+      <p>Trusted legal counsel in Limpopo &amp; beyond. Justice. Integrity. Excellence.</p>
+      <div class="footer-social">
+        <a href="#"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.48-2.24-1.68-2.24-.92 0-1.47.62-1.71 1.22-.09.21-.11.5-.11.8v5.79H9.85s.05-9.39 0-10.36h3.55v1.47c.47-.73 1.31-1.77 3.19-1.77 2.33 0 4.08 1.52 4.08 4.8v5.86zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V10.09h3.56v10.36z"/></svg></a>
+        <a href="#"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-7h2.3l.3-2.7h-2.6v-1.8c0-.8.2-1.3 1.4-1.3h1.5V4.9c-.3 0-1.2-.1-2.2-.1-2.2 0-3.7 1.3-3.7 3.8v2.1H8v2.7h2.5V21h3z"/></svg></a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title">Quick Links</div>
+      <div class="footer-links">
+        <button data-nav="home">Home</button>
+        <button data-nav="about">About</button>
+        <button data-nav="practice">Practice Areas</button>
+        <button data-nav="founders">Founders</button>
+        <button data-nav="offices">Offices</button>
+        <button data-nav="contact">Contact</button>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title">Practice Areas</div>
+      <div class="footer-links">
+        <button data-nav="practice">Family Law and Divorces</button>
+        <button data-nav="practice">Criminal and Labour Law</button>
+        <button data-nav="practice">Road Accident Fund Claims</button>
+        <button data-nav="practice">Commercial and Property Law</button>
+        <button data-nav="practice">General Litigation</button>
+        <button data-nav="practice">Will Planning &amp; Estates</button>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title">Contact &amp; Hours</div>
+      <div class="footer-contact">
+        <div>9 Ruiter Road, Mokopane, 0601<br>69 Hooge Street, Mokopane</div>
+        <div>Mon&ndash;Thu 8AM&ndash;5PM<br>Fri 8AM&ndash;3PM &bull; Sat 9AM&ndash;12PM</div>
+        <div style="opacity:.6;font-size:11px;">Consultations by appointment</div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container footer-bottom-inner">
+      <div>&copy; 2026 Lebelo Raseboye Attorneys. All Rights Reserved.</div>
+      <div>Legal Practice Council Compliant &bull; Mokopane, Limpopo, South Africa</div>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast">
+  <div class="check">&#10003;</div>
+  <div id="toastMsg"></div>
+  <button id="toastClose">&#10005;</button>
+</div>
+
+<script>
+(function(){
+  // ---- Navigation ----
+  var sections = ['home','about','practice','founders','offices','contact'];
+  function goTo(id){
+    var el = document.getElementById(id);
+    if(el){ el.scrollIntoView({behavior:'smooth', block:'start'}); }
+    document.getElementById('mobileNav').classList.remove('open');
+    document.getElementById('burgerBtn').classList.remove('open');
+  }
+  document.querySelectorAll('[data-nav]').forEach(function(btn){
+    btn.addEventListener('click', function(){ goTo(btn.getAttribute('data-nav')); });
+  });
+
+  var burger = document.getElementById('burgerBtn');
+  var mobileNav = document.getElementById('mobileNav');
+  burger.addEventListener('click', function(){
+    burger.classList.toggle('open');
+    mobileNav.classList.toggle('open');
+  });
+
+  // ---- Scrollspy ----
+  var navButtons = document.querySelectorAll('.desktop-nav [data-nav], .mobile-nav [data-nav]');
+  var observer = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        var id = entry.target.id;
+        navButtons.forEach(function(b){
+          b.classList.toggle('active', b.getAttribute('data-nav') === id);
+        });
+      }
+    });
+  }, {rootMargin:'-45% 0px -50% 0px', threshold:0});
+  sections.forEach(function(id){
+    var el = document.getElementById(id);
+    if(el) observer.observe(el);
+  });
+
+  // ---- Reveal on scroll (fade-up elements) ----
+  var revealObserver = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        entry.target.classList.add('in-view');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, {threshold:0.15});
+  document.querySelectorAll('.reveal').forEach(function(el){ revealObserver.observe(el); });
+
+  // ---- 3D horizontal practice cards: slide in from side ----
+  var cardObserver = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        var card = entry.target;
+        var idx = Array.prototype.indexOf.call(card.parentNode.children, card);
+        setTimeout(function(){ card.classList.add('in-view'); }, idx * 110);
+        cardObserver.unobserve(card);
+      }
+    });
+  }, {threshold:0.2});
+  document.querySelectorAll('.practice-card').forEach(function(el){ cardObserver.observe(el); });
+
+  // ---- Contact form ----
+  var form = document.getElementById('enquiryForm');
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var name = document.getElementById('in-name').value.trim();
+    var email = document.getElementById('in-email').value.trim();
+    var phone = document.getElementById('in-phone').value.trim();
+    var area = document.getElementById('in-area').value;
+    var message = document.getElementById('in-message').value.trim();
+
+    var errors = {};
+    if(!name) errors.name = 'Required';
+    if(!email || !/^\S+@\S+\.\S+$/.test(email)) errors.email = 'Valid email required';
+    if(!phone) errors.phone = 'Required';
+    if(!area) errors.area = 'Select area';
+    if(!message) errors.message = 'Required';
+
+    ['name','email','phone','area','message'].forEach(function(f){
+      var wrap = document.getElementById('f-'+f);
+      var errEl = document.getElementById('err-'+f);
+      if(errors[f]){
+        wrap.classList.add('error');
+        errEl.textContent = errors[f];
+      } else {
+        wrap.classList.remove('error');
+        errEl.textContent = '';
+      }
+    });
+
+    if(Object.keys(errors).length > 0) return;
+
+    showToast('Thank you. Your enquiry has been received — we will contact you shortly.');
+    form.reset();
+  });
+
+  var toast = document.getElementById('toast');
+  var toastMsg = document.getElementById('toastMsg');
+  var toastTimer;
+  function showToast(msg){
+    toastMsg.textContent = msg;
+    toast.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function(){ toast.classList.remove('show'); }, 4500);
+  }
+  document.getElementById('toastClose').addEventListener('click', function(){
+    toast.classList.remove('show');
+  });
+})();
+</script>
+</body>
+</html>
