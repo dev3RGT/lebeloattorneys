@@ -224,6 +224,18 @@
   
   .hf-card-content{position:relative;z-index:2;padding:26px 24px 18px;display:flex;flex-direction:column;gap:18px;height:100%;}
   .hf-top-row{display:flex;justify-content:space-between;align-items:flex-start;}
+  .hf-top-right{display:flex;align-items:center;gap:10px;}
+  .hf-info-icon{
+    width:24px;height:24px;border-radius:999px;flex-shrink:0;
+    background:rgba(197,168,128,.16);border:1px solid rgba(197,168,128,.5);
+    display:grid;place-items:center;color:var(--gold);
+    transition:background .25s ease,border-color .25s ease,color .25s ease;
+  }
+  .hf-info-icon svg{width:13px;height:13px;}
+  .hf-card-wrap:hover .hf-info-icon,
+  .hf-card-wrap:focus-within .hf-info-icon{
+    background:var(--gold);color:var(--navy);border-color:var(--gold);
+  }
   .hf-name{font-family:'Playfair Display',serif;font-size:21px;font-weight:600;color:#fff;letter-spacing:-.01em;line-height:1.15;max-width:16ch;}
   .hf-badge{font-size:10px;letter-spacing:.18em;text-transform:uppercase;padding:5px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.18);color:rgba(255,255,255,.75);background:rgba(255,255,255,.08);backdrop-filter:blur(6px);}
   .hf-icon{width:58px;height:58px;border-radius:999px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);display:grid;place-items:center;backdrop-filter:blur(10px);box-shadow:inset 0 1px 0 rgba(255,255,255,.15);}
@@ -602,6 +614,8 @@
   .footer-links button:hover{color:#fff;}
   .footer-contact{margin-top:16px;display:flex;flex-direction:column;gap:12px;font-size:12.5px;
     line-height:1.6;color:rgba(255,255,255,.6);}
+  .footer-contact a{transition:.2s ease;}
+  .footer-contact a:hover{color:#fff;}
   .footer-bottom{border-top:1px solid rgba(255,255,255,.1);}
   .footer-bottom-inner{padding:20px 0;display:flex;flex-direction:column;gap:10px;font-size:11px;
     letter-spacing:.02em;color:rgba(255,255,255,.4);}
@@ -704,7 +718,16 @@
                   <path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/>
                 </svg>
               </div>
-              <span class="hf-badge">01 — Core</span>
+              <div class="hf-top-right">
+                <span class="hf-badge">01 — Core</span>
+                <div class="hf-info-icon" aria-label="More information — hover or tap the card" title="More information">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="9"/>
+                    <line x1="12" y1="7.5" x2="12" y2="13"/>
+                    <circle cx="12" cy="16.3" r="0.9" fill="currentColor" stroke="none"/>
+                  </svg>
+                </div>
+              </div>
             </div>
             <div class="hf-mid">
               <div class="hf-name">General Legal Services</div>
@@ -733,7 +756,16 @@
                   <path d="M10 6h4"/><path d="M10 10h4"/><path d="M10 14h4"/><path d="M10 18h4"/>
                 </svg>
               </div>
-              <span class="hf-badge">02 — Corporate</span>
+              <div class="hf-top-right">
+                <span class="hf-badge">02 — Corporate</span>
+                <div class="hf-info-icon" aria-label="More information — hover or tap the card" title="More information">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="9"/>
+                    <line x1="12" y1="7.5" x2="12" y2="13"/>
+                    <circle cx="12" cy="16.3" r="0.9" fill="currentColor" stroke="none"/>
+                  </svg>
+                </div>
+              </div>
             </div>
             <div class="hf-mid">
               <div class="hf-name">Corporate Law Advice</div>
@@ -763,7 +795,16 @@
                   <path d="m21 11-8-8"/>
                 </svg>
               </div>
-              <span class="hf-badge">03 — Litigation</span>
+              <div class="hf-top-right">
+                <span class="hf-badge">03 — Litigation</span>
+                <div class="hf-info-icon" aria-label="More information — hover or tap the card" title="More information">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="9"/>
+                    <line x1="12" y1="7.5" x2="12" y2="13"/>
+                    <circle cx="12" cy="16.3" r="0.9" fill="currentColor" stroke="none"/>
+                  </svg>
+                </div>
+              </div>
             </div>
             <div class="hf-mid">
               <div class="hf-name">Litigation Support</div>
@@ -1109,7 +1150,8 @@
     <div>
       <div class="footer-col-title">Contact &amp; Hours</div>
       <div class="footer-contact">
-        <div>9 Ruiter Road, Mokopane, 0601<br>69 Hooge Street, Mokopane</div>
+        <div>109 Cnr Ruiter &amp; Kruger Str, Mokopane, 0601</div>
+        <div><a href="mailto:info@rassociates.co.za">info@rassociates.co.za</a><br><a href="tel:+27152800830">015 280 0830</a></div>
         <div>Mon&ndash;Thu 8AM&ndash;5PM<br>Fri 8AM&ndash;3PM &bull; Sat 9AM&ndash;12PM</div>
         <div style="opacity:.6;font-size:11px;">Consultations by appointment</div>
       </div>
@@ -1118,7 +1160,7 @@
   <div class="footer-bottom">
     <div class="container footer-bottom-inner">
       <div>&copy; 2026 Raseboye & Associates. All Rights Reserved.</div>
-      <div>Legal Practice Council Compliant &bull; Mokopane, Limpopo, South Africa</div>
+      <div>Built By Rare Grade Tech</div>
     </div>
   </div>
 </footer>
