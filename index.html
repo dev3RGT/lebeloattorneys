@@ -615,6 +615,26 @@
   .footer-bottom{border-top:1px solid rgba(255,255,255,.1);}
   .footer-bottom-inner{padding:20px 0;display:flex;flex-direction:column;gap:10px;font-size:11px;
     letter-spacing:.02em;color:rgba(255,255,255,.4);}
+  .rgt-link-wrap{position:relative;display:inline-block;}
+  .rgt-link{text-decoration:underline;text-decoration-color:rgba(255,255,255,.3);text-underline-offset:3px;
+    transition:color .2s ease,text-decoration-color .2s ease;}
+  .rgt-link:hover,.rgt-link:focus-visible{color:#fff;text-decoration-color:var(--gold);}
+  .rgt-preview{
+    position:absolute;bottom:calc(100% + 10px);right:0;width:240px;
+    background:#fff;border-radius:14px;padding:14px;display:flex;gap:12px;align-items:flex-start;
+    box-shadow:0 20px 45px rgba(0,0,0,.28);opacity:0;transform:translateY(6px);
+    pointer-events:none;transition:opacity .2s ease,transform .2s ease;z-index:20;
+  }
+  .rgt-preview::after{content:"";position:absolute;top:100%;right:20px;
+    border:6px solid transparent;border-top-color:#fff;}
+  .rgt-link-wrap:hover .rgt-preview,
+  .rgt-link-wrap:focus-within .rgt-preview{
+    opacity:1;transform:translateY(0);pointer-events:auto;
+  }
+  .rgt-preview img{width:36px;height:36px;border-radius:8px;object-fit:contain;background:var(--cream);flex-shrink:0;}
+  .rgt-preview-title{font-size:12.5px;font-weight:700;color:var(--navy);letter-spacing:0;}
+  .rgt-preview-desc{margin-top:3px;font-size:11px;line-height:1.5;color:rgba(26,26,26,.6);letter-spacing:0;}
+  .rgt-preview-url{margin-top:6px;font-size:10px;letter-spacing:.05em;color:var(--gold);}
   @media(min-width:768px){
     .footer-grid{grid-template-columns:1fr 1fr;}
   }
@@ -1141,7 +1161,19 @@
   <div class="footer-bottom">
     <div class="container footer-bottom-inner">
       <div>&copy; 2026 Raseboye & Associates. All Rights Reserved.</div>
-      <div>Built By Rare Grade Tech</div>
+      <div>Built By
+        <span class="rgt-link-wrap">
+          <a class="rgt-link" href="https://raregradetech.com/" target="_blank" rel="noopener noreferrer">Rare Grade Tech</a>
+          <div class="rgt-preview">
+            <img src="https://raregradetech.com/wp-content/uploads/2023/08/website-logo-e1738227303766.png" alt="Rare Grade Tech logo">
+            <div>
+              <div class="rgt-preview-title">Rare Grade Tech</div>
+              <div class="rgt-preview-desc">Imagination To Reality &mdash; software, web &amp; mobile apps, graphic design and PC repair.</div>
+              <div class="rgt-preview-url">raregradetech.com</div>
+            </div>
+          </div>
+        </span>
+      </div>
     </div>
   </div>
 </footer>
