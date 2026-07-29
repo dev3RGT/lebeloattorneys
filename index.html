@@ -455,8 +455,6 @@
   .office-cell .footline a:hover{color:var(--navy);}
   .map-card{border-radius:20px;overflow:hidden;border:1px solid rgba(15,30,51,.1);
     background:var(--navy);position:relative;height:220px;}
-  .map-dots{position:absolute;inset:0;opacity:.08;background-image:radial-gradient(#fff 1px,transparent 1px);
-    background-size:18px 18px;}
   .map-pill{position:absolute;left:16px;bottom:16px;background:#fff;border-radius:999px;padding:6px 12px;
     display:flex;align-items:center;gap:8px;font-size:11px;color:var(--navy);
     box-shadow:0 6px 18px rgba(0,0,0,.15);}
@@ -981,16 +979,11 @@
       </div>
       <div class="reveal" style="display:flex;flex-direction:column;gap:24px;">
         <div class="map-card">
-          <div class="map-dots"></div>
-          <svg viewBox="0 0 400 220" style="position:absolute;inset:0;width:100%;height:100%;">
-            <path d="M 60 160 Q 120 90 200 110 T 340 80" fill="none" stroke="white" stroke-opacity=".15" stroke-width="1" stroke-dasharray="4 6"/>
-            <circle cx="200" cy="108" r="28" fill="#C5A880" fill-opacity=".18"/>
-            <circle cx="200" cy="108" r="6" fill="#C5A880"/>
-            <circle cx="200" cy="108" r="10" fill="none" stroke="#C5A880" stroke-width="1"/>
-            <text x="200" y="145" text-anchor="middle" fill="white" font-size="11" letter-spacing="2" opacity=".7">MOKOPANE</text>
-            <text x="200" y="158" text-anchor="middle" fill="white" font-size="9" letter-spacing="2" opacity=".4">LIMPOPO, SA</text>
-          </svg>
-          <div class="map-pill"><span class="dotgreen"></span> Mokopane, Limpopo &mdash; Primary Location</div>
+          <iframe
+            src="https://www.google.com/maps?q=109+Cnr+Ruiter+%26+Kruger+Str,+Mokopane,+0601,+South+Africa&output=embed"
+            width="100%" height="100%" style="border:0;display:block;" allowfullscreen loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade" title="Raseboye & Associates office location map"></iframe>
+          <div class="map-pill"><span class="dotgreen"></span> Mokopane, Limpopo &mdash; Our Location</div>
         </div>
         <div class="hours-card">
           <div class="hours-title"><span class="ic">&#9719;</span><span class="serif">Operating Hours</span></div>
