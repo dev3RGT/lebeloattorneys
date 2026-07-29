@@ -224,14 +224,14 @@
   
   .hf-card-content{position:relative;z-index:2;padding:26px 24px 18px;display:flex;flex-direction:column;gap:18px;height:100%;}
   .hf-top-row{display:flex;justify-content:space-between;align-items:flex-start;}
-  .hf-top-right{display:flex;align-items:center;gap:10px;}
   .hf-info-icon{
-    width:24px;height:24px;border-radius:999px;flex-shrink:0;
+    position:absolute;right:16px;bottom:16px;z-index:3;
+    width:31px;height:31px;border-radius:999px;flex-shrink:0;
     background:rgba(197,168,128,.16);border:1px solid rgba(197,168,128,.5);
     display:grid;place-items:center;color:var(--gold);
     transition:background .25s ease,border-color .25s ease,color .25s ease;
   }
-  .hf-info-icon svg{width:13px;height:13px;}
+  .hf-info-icon svg{width:17px;height:17px;}
   .hf-card-wrap:hover .hf-info-icon,
   .hf-card-wrap:focus-within .hf-info-icon{
     background:var(--gold);color:var(--navy);border-color:var(--gold);
@@ -441,11 +441,8 @@
   .office-cards{display:grid;grid-template-columns:1fr;gap:1px;background:rgba(15,30,51,.1);
     border:1px solid rgba(15,30,51,.1);border-radius:20px;overflow:hidden;}
   .office-cell{background:var(--cream);padding:28px;}
-  .office-cell.alt{background:#fff;}
   .tag-primary{display:inline-flex;font-size:10px;letter-spacing:.2em;text-transform:uppercase;
     color:#fff;background:var(--navy);padding:4px 10px;border-radius:999px;}
-  .tag-secondary{display:inline-flex;font-size:10px;letter-spacing:.2em;text-transform:uppercase;
-    border:1px solid rgba(15,30,51,.15);color:rgba(15,30,51,.6);padding:4px 10px;border-radius:999px;}
   .office-cell h3{margin-top:18px;font-size:17px;color:var(--navy);font-family:'Playfair Display',serif;}
   .office-cell p{margin-top:8px;font-size:13px;line-height:1.6;color:rgba(26,26,26,.6);}
   .office-cell .fine{color:rgba(15,30,51,.5);}
@@ -454,6 +451,8 @@
     color:rgba(15,30,51,.6);}
   .office-cell .footline .ic{width:20px;height:20px;border-radius:999px;background:#fff;
     border:1px solid rgba(15,30,51,.1);display:grid;place-items:center;}
+  .office-cell .footline a{transition:.2s ease;}
+  .office-cell .footline a:hover{color:var(--navy);}
   .map-card{border-radius:20px;overflow:hidden;border:1px solid rgba(15,30,51,.1);
     background:var(--navy);position:relative;height:220px;}
   .map-dots{position:absolute;inset:0;opacity:.08;background-image:radial-gradient(#fff 1px,transparent 1px);
@@ -475,9 +474,6 @@
   .hours-row.closed span:last-child{color:rgba(26,26,26,.4);}
   .hours-note{margin-top:18px;font-size:11px;line-height:1.6;color:rgba(15,30,51,.5);
     background:#fff;border:1px solid rgba(15,30,51,.06);border-radius:12px;padding:10px 12px;}
-  @media(min-width:768px){
-    .office-cards{grid-template-columns:1fr 1fr;}
-  }
   @media(min-width:1024px){
     .offices-grid{grid-template-columns:1.1fr .9fr;}
     .offices-head h2{font-size:40px;}
@@ -563,6 +559,8 @@
   .biz-contact-lines{display:flex;flex-direction:column;gap:12px;margin-top:6px;}
   .biz-line{display:flex;align-items:center;gap:12px;font-size:12.5px;color:rgba(15,30,51,.65);}
   .biz-line .b-ic{width:28px;height:28px;border-radius:999px;background:var(--cream);border:1px solid rgba(15,30,51,.08);display:grid;place-items:center;font-size:12px;color:var(--navy);flex-shrink:0;}
+  .biz-line a{transition:.2s ease;}
+  .biz-line a:hover{color:var(--navy);}
   .social-row{margin-top:22px;display:flex;gap:10px;padding-left:2px;}
   .social-row a{width:36px;height:36px;border-radius:999px;border:1px solid rgba(15,30,51,.1);
     display:grid;place-items:center;color:rgba(15,30,51,.6);transition:all .25s ease;background:#fff;}
@@ -718,16 +716,7 @@
                   <path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/>
                 </svg>
               </div>
-              <div class="hf-top-right">
-                <span class="hf-badge">01 — Core</span>
-                <div class="hf-info-icon" aria-label="More information — hover or tap the card" title="More information">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="12" cy="12" r="9"/>
-                    <line x1="12" y1="7.5" x2="12" y2="13"/>
-                    <circle cx="12" cy="16.3" r="0.9" fill="currentColor" stroke="none"/>
-                  </svg>
-                </div>
-              </div>
+              <span class="hf-badge">01 — Core</span>
             </div>
             <div class="hf-mid">
               <div class="hf-name">General Legal Services</div>
@@ -735,6 +724,13 @@
             <div class="hf-num">TRUSTED COUNSEL</div>
           </div>
           <div class="hf-fade"></div>
+          <div class="hf-info-icon" aria-label="More information — hover or tap the card" title="More information">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="9"/>
+              <line x1="12" y1="7.5" x2="12" y2="13"/>
+              <circle cx="12" cy="16.3" r="0.9" fill="currentColor" stroke="none"/>
+            </svg>
+          </div>
         </div>
         <div class="hf-card-reveal">
           <div class="hf-reveal-inner">
@@ -756,16 +752,7 @@
                   <path d="M10 6h4"/><path d="M10 10h4"/><path d="M10 14h4"/><path d="M10 18h4"/>
                 </svg>
               </div>
-              <div class="hf-top-right">
-                <span class="hf-badge">02 — Corporate</span>
-                <div class="hf-info-icon" aria-label="More information — hover or tap the card" title="More information">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="12" cy="12" r="9"/>
-                    <line x1="12" y1="7.5" x2="12" y2="13"/>
-                    <circle cx="12" cy="16.3" r="0.9" fill="currentColor" stroke="none"/>
-                  </svg>
-                </div>
-              </div>
+              <span class="hf-badge">02 — Corporate</span>
             </div>
             <div class="hf-mid">
               <div class="hf-name">Corporate Law Advice</div>
@@ -773,6 +760,13 @@
             <div class="hf-num">STRATEGIC GROWTH</div>
           </div>
           <div class="hf-fade"></div>
+          <div class="hf-info-icon" aria-label="More information — hover or tap the card" title="More information">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="9"/>
+              <line x1="12" y1="7.5" x2="12" y2="13"/>
+              <circle cx="12" cy="16.3" r="0.9" fill="currentColor" stroke="none"/>
+            </svg>
+          </div>
         </div>
         <div class="hf-card-reveal">
           <div class="hf-reveal-inner">
@@ -795,16 +789,7 @@
                   <path d="m21 11-8-8"/>
                 </svg>
               </div>
-              <div class="hf-top-right">
-                <span class="hf-badge">03 — Litigation</span>
-                <div class="hf-info-icon" aria-label="More information — hover or tap the card" title="More information">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="12" cy="12" r="9"/>
-                    <line x1="12" y1="7.5" x2="12" y2="13"/>
-                    <circle cx="12" cy="16.3" r="0.9" fill="currentColor" stroke="none"/>
-                  </svg>
-                </div>
-              </div>
+              <span class="hf-badge">03 — Litigation</span>
             </div>
             <div class="hf-mid">
               <div class="hf-name">Litigation Support</div>
@@ -812,6 +797,13 @@
             <div class="hf-num">RESOLUTE REPRESENTATION</div>
           </div>
           <div class="hf-fade"></div>
+          <div class="hf-info-icon" aria-label="More information — hover or tap the card" title="More information">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="9"/>
+              <line x1="12" y1="7.5" x2="12" y2="13"/>
+              <circle cx="12" cy="16.3" r="0.9" fill="currentColor" stroke="none"/>
+            </svg>
+          </div>
         </div>
         <div class="hf-card-reveal">
           <div class="hf-reveal-inner">
@@ -978,18 +970,13 @@
     <div class="offices-grid">
       <div class="office-cards reveal">
         <div class="office-cell">
-          <span class="tag-primary">Primary Office</span>
-          <h3>9 Ruiter Road</h3>
+          <span class="tag-primary">Our Office</span>
+          <h3>109 Cnr Ruiter &amp; Kruger Str</h3>
           <p>Mokopane, 0601<br>South Africa<br><span class="fine">~246 km from Johannesburg</span></p>
           <hr>
           <div class="footline"><span class="ic">&#8982;</span> Mokopane Central</div>
-        </div>
-        <div class="office-cell alt">
-          <span class="tag-secondary">Secondary Office</span>
-          <h3>69 Hooge Street</h3>
-          <p>Mokopane<br>South Africa<br><span class="fine">By appointment</span></p>
-          <hr>
-          <div class="footline"><span class="ic">&#10022;</span> Consultations by appointment</div>
+          <div class="footline"><span class="ic">&#9993;</span> <a href="mailto:info@rassociates.co.za">info@rassociates.co.za</a></div>
+          <div class="footline"><span class="ic">&#9742;</span> <a href="tel:+27152800830">015 280 0830</a></div>
         </div>
       </div>
       <div class="reveal" style="display:flex;flex-direction:column;gap:24px;">
@@ -1080,13 +1067,14 @@
         </div>
         <div class="biz-body">
           <div class="biz-contact-lines">
-            <div class="biz-line"><span class="b-ic">⌖</span> 9 Ruiter Road, Mokopane, 0601 • Primary</div>
-            <div class="biz-line"><span class="b-ic">◎</span> 69 Hooge Street, Mokopane • Secondary</div>
+            <div class="biz-line"><span class="b-ic">⌖</span> 109 Cnr Ruiter &amp; Kruger Str, Mokopane, 0601</div>
+            <div class="biz-line"><span class="b-ic">✉</span> <a href="mailto:info@rassociates.co.za">info@rassociates.co.za</a></div>
+            <div class="biz-line"><span class="b-ic">☎</span> <a href="tel:+27152800830">015 280 0830</a></div>
           </div>
           <div class="info-divider"></div>
           <div class="info-block">
-            <div class="lbl">Primary Office</div>
-            <div class="val">9 Ruiter Road, Mokopane, 0601<br>South Africa • ~246 km from JHB</div>
+            <div class="lbl">Office</div>
+            <div class="val">109 Cnr Ruiter &amp; Kruger Str, Mokopane, 0601<br>South Africa • ~246 km from JHB</div>
           </div>
           <div class="info-block">
             <div class="lbl">Hours</div>
